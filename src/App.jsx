@@ -1,28 +1,32 @@
-import { useState } from 'react'
+import Header from './components/Header';
+import Hero from './components/Hero';
+import CategoryList from './components/CategoryList';
+import TopProducts from './components/TopProducts';
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <CategoryList />
+        <section id="delivery" className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <div className="rounded-2xl border border-gray-100 bg-gradient-to-br from-amber-50 to-rose-50 p-6">
+            <h2 className="text-2xl font-bold text-gray-900">Доставка и оплата</h2>
+            <p className="mt-2 text-gray-700">Курьерская доставка по городу в день заказа. Самовывоз из пекарни. Оплата картой онлайн или при получении.</p>
+            <ul className="mt-4 grid md:grid-cols-3 gap-3 text-sm text-gray-700">
+              <li className="bg-white rounded-xl p-4 border border-gray-100">Бесплатно от 800₴</li>
+              <li className="bg-white rounded-xl p-4 border border-gray-100">Доставка за 60–90 минут</li>
+              <li className="bg-white rounded-xl p-4 border border-gray-100">Трекинг статуса заказа</li>
+            </ul>
+          </div>
+        </section>
+        <TopProducts />
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
